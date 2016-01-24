@@ -10,10 +10,10 @@ import {SHORT_TYPE, TYPE_FROM_SHORT_TYPE} from 'vega-lite/src/type';
 import {map as encodingMap} from 'vega-lite/src/encoding';
 import {Mark} from 'vega-lite/src/mark';
 
-export const DELIM = '|';
-export const ASSIGN = '=';
-export const TYPE = ',';
-export const FUNC = '_';
+const DELIM = '|';
+const ASSIGN = '=';
+const TYPE = ',';
+const FUNC = '_';
 
 export function shorten(spec: Spec): string {
   return 'mark' + ASSIGN + spec.mark +
@@ -39,13 +39,13 @@ export function parse(shorthand: string, data?, config?) {
   return spec;
 }
 
-export function shortenEncoding(encoding: Encoding): string {
+function shortenEncoding(encoding: Encoding): string {
   return encodingMap(encoding, function(fieldDef, channel) {
     return channel + ASSIGN + shortenFieldDef(fieldDef);
   }).join(DELIM);
 }
 
-export function parseEncoding(encodingShorthand: string): Encoding {
+function parseEncoding(encodingShorthand: string): Encoding {
   return encodingShorthand.split(DELIM).reduce(function(m, e) {
     var split = e.split(ASSIGN),
         enctype = split[0].trim(),
@@ -56,18 +56,14 @@ export function parseEncoding(encodingShorthand: string): Encoding {
   }, {});
 }
 
-export function shortenFieldDef(fieldDef: FieldDef): string {
+function shortenFieldDef(fieldDef: FieldDef): string {
   return (fieldDef.aggregate ? fieldDef.aggregate + FUNC : '') +
     (fieldDef.timeUnit ? fieldDef.timeUnit + FUNC : '') +
     (fieldDef.bin ? 'bin' + FUNC : '') +
     (fieldDef.field || '') + TYPE + SHORT_TYPE[fieldDef.type];
 }
 
-export function shortenFieldDefs(fieldDefs: FieldDef[], delim = DELIM): string {
-  return fieldDefs.map(shortenFieldDef).join(delim);
-}
-
-export function parseFieldDef(fieldDefShorthand: string): FieldDef {
+function parseFieldDef(fieldDefShorthand: string): FieldDef {
   var split = fieldDefShorthand.split(TYPE);
 
   var fieldDef: FieldDef = {
