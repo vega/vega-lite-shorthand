@@ -4,7 +4,7 @@
   "description": "Shorthand syntax for Vega-Lite",
   "main": "src/vls.js",
   "scripts": {
-    "build": "browserify src/vls.ts -p tsify -d -s vls > vega-lite-shorthand.js",
+    "build": "rollup -c",
     "postbuild": "uglifyjs vega-lite-shorthand.js -cm --source-map vega-lite-shorthand.min.js.map > vega-lite-shorthand.min.js",
     "lint": "tslint -c tslint.json src/*.ts",
     "test": "tsc && mocha --recursive --require source-map-support/register"
@@ -30,10 +30,11 @@
     "browserify-versionify": "^1.0.6",
     "chai": "^3.4.1",
     "mocha": "^2.3.4",
+    "rollup-plugin-typescript": "^0.5.0",
     "source-map-support": "^0.4.0",
     "tsify": "^0.13.1",
     "tslint": "^3.2.0",
-    "typescript": "^1.7.5",
+    "typescript": "^1.8.0",
     "uglify-js": "^2.6.1",
     "watchify": "^3.6.1"
   },
