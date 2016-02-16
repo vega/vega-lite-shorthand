@@ -1,0 +1,13 @@
+node_modules
+bower_components
+
+vega-lite-shorthand*.js
+vega-lite-shorthand*.map
+npm-debug.log
+instance.json
+coverage
+Gemfile.lock
+
+src/**/*.js
+test/**/*.js
+**/*.js.map

@@ -1,0 +1,44 @@
+{
+  "name": "vega-lite-shorthand",
+  "version": "0.1.0",
+  "description": "Shorthand syntax for Vega-Lite",
+  "main": "src/vls.js",
+  "scripts": {
+    "build": "rollup -c",
+    "postbuild": "uglifyjs vega-lite-shorthand.js -cm --source-map vega-lite-shorthand.min.js.map > vega-lite-shorthand.min.js",
+    "lint": "tslint -c tslint.json src/*.ts",
+    "test": "tsc && mocha --recursive --require source-map-support/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vega/vega-lite-shorthand.git"
+  },
+  "keywords": [
+    "Visualization",
+    "Vega-Lite",
+    "Shorthand"
+  ],
+  "author": "Kanit Wongsuphasawat, Dominik Moritz, Jeffrey Heer",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/vega/vega-lite-shorthand/issues"
+  },
+  "homepage": "https://github.com/vega/vega-lite-shorthand#readme",
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "browserify-shim": "^3.8.11",
+    "browserify-versionify": "^1.0.6",
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "rollup-plugin-typescript": "^0.5.0",
+    "source-map-support": "^0.4.0",
+    "tsify": "^0.13.1",
+    "tslint": "^3.2.0",
+    "typescript": "^1.8.0",
+    "uglify-js": "^2.6.1",
+    "watchify": "^3.6.1"
+  },
+  "dependencies": {
+    "vega-lite": "latest"
+  }
+}

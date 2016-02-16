@@ -1,0 +1,29 @@
+{
+  "name": "vega-lite-shorthand",
+  "description": "Shorthand syntax for Vega-Lite",
+  "main": "src/vls.js",
+  "authors": [
+    "Kanit Wongsuphasawat",
+    "Dominik Moritz",
+    "Jeffrey Heer"
+  ],
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "Visualization",
+    "Vega-Lite",
+    "Shorthand"
+  ],
+  "homepage": "https://github.com/vega/vega-lite-shorthand",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
